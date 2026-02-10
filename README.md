@@ -11,6 +11,7 @@ TimeTreeはUI/UXに優れたカレンダーアプリですが、**公式APIが�
 ## 機能
 
 - **毎日**: 今日と明日の予定を通知
+- **月曜日のみ**: 今週1週間の予定も併せて通知
 - 予定がない場合は「予定はありません」と明示
 - TimeTreeへのログイン認証（内部API使用）
 - 終日・時間指定の予定に対応
@@ -119,7 +120,9 @@ tail -f timetree_discord.log
 
 ## 通知フォーマット
 
-### 予定がある場合
+### 毎日の通知（今日・明日の予定）
+
+#### 予定がある場合
 
 ```
 📅 今日の予定 - 1月31日 (金)
@@ -135,7 +138,7 @@ tail -f timetree_discord.log
 • 終日 - 誕生日パーティー
 ```
 
-### 予定がない場合
+#### 予定がない場合
 
 ```
 📅 今日の予定 - 2月1日 (土)
@@ -145,6 +148,19 @@ tail -f timetree_discord.log
 📅 明日の予定 - 2月2日 (日)
 
 予定はありません
+```
+
+### 月曜日の通知（今週の予定）
+
+月曜日のみ、上記に加えて今週1週間の予定も通知されます。
+
+```
+📅 今週の予定 (2/3 〜 2/9)
+
+予定
+• 2/3 (月) - 週次ミーティング
+• 2/5 (水) - 誕生日
+• 2/7 (金) 19:00 - 飲み会
 ```
 
 ## ファイル構成
@@ -204,6 +220,7 @@ So I created this system to automatically send daily TimeTree event notification
 ## Features
 
 - **Daily**: Sends notifications for today's and tomorrow's events
+- **Monday only**: Also sends weekly schedule notification for the entire week
 - Clearly states "No events" when the schedule is empty
 - TimeTree login authentication (using internal API)
 - Supports all-day and time-specific events
@@ -312,7 +329,9 @@ tail -f timetree_discord.log
 
 ## Notification Format
 
-### When Events Exist
+### Daily Notification (Today & Tomorrow)
+
+#### When Events Exist
 
 ```
 📅 今日の予定 - Jan 31 (Fri)
@@ -328,7 +347,7 @@ Events
 • All Day - Birthday Party
 ```
 
-### When No Events
+#### When No Events
 
 ```
 📅 今日の予定 - Feb 1 (Sat)
@@ -338,6 +357,19 @@ No events
 📅 明日の予定 - Feb 2 (Sun)
 
 No events
+```
+
+### Monday Weekly Notification
+
+On Mondays only, a weekly schedule notification is also sent in addition to the daily notification.
+
+```
+📅 今週の予定 (2/3 〜 2/9)
+
+Events
+• 2/3 (Mon) - Weekly Meeting
+• 2/5 (Wed) - Birthday
+• 2/7 (Fri) 19:00 - Drinks
 ```
 
 ## File Structure
